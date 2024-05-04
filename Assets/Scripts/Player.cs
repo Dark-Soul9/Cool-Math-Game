@@ -33,8 +33,6 @@ public class Player : MonoBehaviour
         transform.Translate(Vector3.right * newPosX);
         transform.Translate(Vector3.forward * newPosY);
         Bounds();
-        
-        
     }
     void Bounds()
     {
