@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         float newPosY = speed * verticalInput * Time.deltaTime;
         transform.Translate(Vector3.right * newPosX);
         transform.Translate(Vector3.forward * newPosY);
-        Bounds();
+        //Bounds();
     }
     void Bounds()
     {
