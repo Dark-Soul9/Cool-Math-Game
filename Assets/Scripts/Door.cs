@@ -18,7 +18,6 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Left");
         if(other.tag == "Player")
         {
             anim.SetTrigger("Leave");

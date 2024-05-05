@@ -23,7 +23,7 @@ public class Equation : MonoBehaviour
     }
     private void Update()
     {
-        //transform.Translate(Vector3.back * speed * Time.deltaTime);
+        transform.Translate(Vector3.back * speed * Time.deltaTime);
         if(transform.position.z < -11f)
         {
             Destroy(gameObject);
