@@ -7,10 +7,15 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private float speed = 5;
+    private float maxY = 4;
+    private float maxZ = 9;
+    private float maxX = 2;
+    private Rigidbody playerRb;
     private bool gameEnd;
     // Start is called before the first frame update
     void Start()
     {
+        playerRb = GetComponent<Rigidbody>();
         gameEnd = false;
     }
 
@@ -32,27 +37,27 @@ public class Player : MonoBehaviour
         float newPosY = speed * verticalInput * Time.deltaTime;
         transform.Translate(Vector3.right * newPosX);
         transform.Translate(Vector3.forward * newPosY);
-        //Bounds();
+        Bounds();
     }
     void Bounds()
     {
-        if (transform.position.z < -9)
+        if (transform.position.z < -maxZ)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -9);
         }
-        if (transform.position.z > -8)
+        if (transform.position.z > -maxZ + 1)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -8);
         }
-        if (transform.position.x < -2)
+        if (transform.position.x < -maxX)
         {
             transform.position = new Vector3(-2, transform.position.y, transform.position.z);
         }
-        if (transform.position.x > 2)
+        if (transform.position.x > maxX)
         {
             transform.position = new Vector3(2, transform.position.y, transform.position.z);
         }
-        if( transform.position.y < -4)
+        if( transform.position.y < -maxY)
         {
             Destroy(gameObject);
         }
@@ -62,6 +67,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.CompareTag("Equation"))
         {
             gameEnd = true;
+            playerRb.AddForce(Vector3.back * 10,ForceMode.Impulse);
         }
     }
 }

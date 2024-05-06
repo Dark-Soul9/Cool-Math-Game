@@ -7,7 +7,7 @@ public class Equation : MonoBehaviour
     [SerializeField] private Transform[] doorSpawnPos;
     [SerializeField] private GameObject fakeDoorPrefab;
     [SerializeField] private GameObject realDoorPrefab;
-    private float speed = 3f;
+    private float speed = 4f;
     private void Start()
     {
         for(int i = 0; i < doorSpawnPos.Length; i++)
